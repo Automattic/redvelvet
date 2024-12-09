@@ -63,5 +63,4 @@ Included Files
 
 This project includes:
 
-- [jQuery](https://jquery.com/), which is Copyright &copy; 2005, 2014 jQuery Foundation, Inc. and other contributors, and Released under the MIT license http://jquery.org/license
-- [WebUI-Popover](https://github.com/sandywalker/webui-popover), Copyright &copy; 2014 Sandy Duan, under the MIT License (MIT)
+- 
