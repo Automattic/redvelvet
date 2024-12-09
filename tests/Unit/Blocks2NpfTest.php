@@ -54,4 +54,15 @@ class Blocks2NpfTest extends TestCase
 
         $this->assertSame($expected_npf, $result);
     }
+
+    public function test_audio_conversion(): void
+    {
+        $html_blocks = '<!-- wp:audio {"mediaURL":"https://example.com/audio.mp3","mediaTitle":"Song Title","mediaArtist":"Artist Name","mediaAlbum":"Album Name","poster":{"url":"https://example.com/cover.jpg"}} --><figure class="wp-block-audio"><audio controls src="https://example.com/audio.mp3"></audio></figure><!-- /wp:audio -->';
+
+        $expected_npf = '{"content":[{"type":"audio","url":"https:\/\/example.com\/audio.mp3","title":"Song Title","artist":"Artist Name","album":"Album Name","poster":[{"url":"https:\/\/example.com\/cover.jpg"}]}],"layout":[],"trail":[],"version":2}';
+
+        $result = (new Blocks2Npf())->convert($html_blocks);
+
+        $this->assertSame($expected_npf, $result);
+    }
 }

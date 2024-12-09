@@ -479,6 +479,7 @@ class Npf2Blocks
         return match ($block['type'] ?? null) {
             'text' => $this->make_text_block_with_subtype($block),
             'image' => $this->make_image_block($block),
+            'audio' => $this->make_audio_block( $block ),
             default => $this->make_paragraph($block['content'], $block['formatting'] ?? array()),
         };
     }
@@ -517,6 +518,36 @@ class Npf2Blocks
             'innerHTML' => '',
             'innerContent' => array(
                 '',
+            ),
+        );
+    }
+
+    /**
+     * Helper function to create a Gutenberg audio block.
+     *
+     * @param array $block The block data.
+     *
+     * @return array
+     */
+    private function make_audio_block( array $block ): array {
+        $url = $block['url'] ?? '';
+        return array(
+            'blockName'    => 'core/audio',
+            'attrs'        => array(
+                'mediaURL'    => $url,
+                'mediaTitle'  => $block['title'] ?? '',
+                'mediaArtist' => $block['artist'] ?? '',
+                'mediaAlbum'  => $block['album'] ?? '',
+                'poster'      => array(
+                    'url' => $block['poster'][0]['url'] ?? '',
+                ),
+            ),
+            'innerBlocks'  => array(),
+            'innerHTML'    => '<figure class="wp-block-audio"><audio controls src="' . $url . '"></audio></figure>',
+            'innerContent' => array(
+                '<figure class="wp-block-audio">',
+                '<audio controls src="' . $url . '"></audio>',
+                '</figure>',
             ),
         );
     }
