@@ -93,7 +93,7 @@ class Blocks2Npf
                 )
             ),
             'core/image' => $this->process_image_block($block, $npf, $append),
-            'core/audio' => $this->process_audio_block( $block, $npf, $append ),
+            'core/audio' => $this->process_audio_block($block, $npf, $append),
             default => $append(
                 $npf,
                 array(
@@ -226,21 +226,22 @@ class Blocks2Npf
      *
      * @return void
      */
-    private function process_audio_block( array $block, array &$npf, callable $append ): void {
-        $url    = $block['attrs']['mediaURL'] ?? '';
-        $title  = $block['attrs']['mediaTitle'] ?? '';
+    private function process_audio_block(array $block, array &$npf, callable $append): void
+    {
+        $url = $block['attrs']['mediaURL'] ?? '';
+        $title = $block['attrs']['mediaTitle'] ?? '';
         $artist = $block['attrs']['mediaArtist'] ?? '';
-        $album  = $block['attrs']['mediaAlbum'] ?? '';
+        $album = $block['attrs']['mediaAlbum'] ?? '';
         $poster = $block['attrs']['poster']['url'] ?? '';
 
         $append(
             $npf,
             array(
-                'type'   => 'audio',
-                'url'    => $url,
-                'title'  => $title,
+                'type' => 'audio',
+                'url' => $url,
+                'title' => $title,
                 'artist' => $artist,
-                'album'  => $album,
+                'album' => $album,
                 'poster' => array(
                     array(
                         'url' => $poster,
