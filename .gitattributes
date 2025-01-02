@@ -1,13 +1,13 @@
 # Folders
-/tests/ export-ignore
-/scripts/ export-ignore
-/.github/ export-ignore
+/tests export-ignore
+/scripts export-ignore
+/.github export-ignore
 
 # Files
 /.gitignore export-ignore
 .gitattributes export-ignore
-ecs.php export-ignore
-README.md export-ignore
-phpunit.xml.dist export-ignore
-application.php export-ignore
-Dockerfile
+/ecs.php export-ignore
+/README.md export-ignore
+/phpunit.xml.dist export-ignore
+/application.php export-ignore
+/Dockerfile
