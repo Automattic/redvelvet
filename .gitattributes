@@ -1,0 +1,12 @@
+# Folders
+tests/ export-ignore
+scripts/ export-ignore
+.github/ export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+
+# Files
+ecs.php export-ignore
+README.md export-ignore
+phpunit.xml export-ignore
+application.php export-ignore
